@@ -13,7 +13,10 @@ const Game = () => {
     }
   }).join(' ');
 
+
+
   return (
+    
     <div className="Game">
       <h2>Game</h2>
 
@@ -24,10 +27,10 @@ const Game = () => {
       <p className="Game__format-example">
         { exampleFormat }
       </p>
-
+      
       <RecentSubmission />
 
-      <PlayerSubmissionForm />
+      <PlayerSubmissionForm sendSubmission={sendSubmission} index={index} />
 
       <FinalPoem />
 
