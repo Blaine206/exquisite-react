@@ -13,7 +13,17 @@ const Game = () => {
     }
   }).join(' ');
 
-
+  const [submissions, setSubmissions] = useState([])
+  const [index, setIndex] = useState(1)
+  
+  const sendSubmission = (submission) => {
+    // Create a new array, make submissions that array (basically always += the object the newly substantiated array??), push submission into that new array, set state to that new array????
+    const newSubmissions = submissions
+    newSubmissions.push(submission)
+    setSubmissions(newSubmissions)
+    console.log(submissions)
+    setIndex(index + 1)
+  };
 
   return (
     
