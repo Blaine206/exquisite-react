@@ -28,6 +28,7 @@ const PlayerSubmissionForm = (props) => {
     if (field.key) {
       return (
       <input 
+        key={field.key}
         name={field.key}
         value={formFields[field.key]}
         onChange={onFieldChange}
@@ -63,7 +64,6 @@ const PlayerSubmissionForm = (props) => {
         <div className="PlayerSubmissionForm__poem-inputs">
         {inputFields}
         </div>
-
         <div className="PlayerSubmissionForm__submit">
           <input type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
         </div>
