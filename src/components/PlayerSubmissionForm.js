@@ -6,7 +6,7 @@ const PlayerSubmissionForm = (props) => {
   const [formFields, setFormFields] = useState({
     adj1: '',
     noun1: '',
-    adverb: '',
+    adv: '',
     verb: '',
     adj2: '',
     noun2: ''
@@ -24,6 +24,20 @@ const PlayerSubmissionForm = (props) => {
 
   };
 
+  const inputFields = props.fields.map(field => {
+    if (field.key) {
+      return (
+      <input 
+        name={field.key}
+        value={formFields[field.key]}
+        onChange={onFieldChange}
+        placeholder={field.placeholder}
+        type="text" />);
+    } else {
+      return field;
+    }
+  });
+
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -33,7 +47,7 @@ const PlayerSubmissionForm = (props) => {
     setFormFields({
       adj1: '',
       noun1: '',
-      adverb: '',
+      adv: '',
       verb: '',
       adj2: '',
       noun2: ''
@@ -47,44 +61,8 @@ const PlayerSubmissionForm = (props) => {
       <form onSubmit={onFormSubmit} className="PlayerSubmissionForm__form" >
 
         <div className="PlayerSubmissionForm__poem-inputs">
-        The
-        <input
-          name="adj1"
-          value={formFields.adj1}
-          onChange={onFieldChange}
-          placeholder="adjective"
-          type="text" />
-        <input
-          name="noun1"
-          value={formFields.noun1}
-          onChange={onFieldChange}
-          placeholder="noun"
-          type="text" />
-        <input
-          name="adverb"
-          value={formFields.adverb}
-          onChange={onFieldChange}
-          placeholder="adverb"
-          type="text" />
-        <input
-          name="verb"
-          value={formFields.verb}
-          onChange={onFieldChange}
-          placeholder="verb"
-          type="text" />
-          the
-        <input
-          name="adj2"
-          value={formFields.adj2}
-          onChange={onFieldChange}
-          placeholder="adjective"
-          type="text" />
-        <input
-          name="noun2"
-          value={formFields.noun2}
-          onChange={onFieldChange}
-          placeholder="noun"
-          type="text" />
+
+        {inputFields}
         </div>
 
         <div className="PlayerSubmissionForm__submit">

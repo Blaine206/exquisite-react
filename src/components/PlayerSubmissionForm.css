@@ -2,6 +2,10 @@
   line-height: 3rem;
 }
 
+.emptyField {
+  background-color: pink;
+}
+
 .PlayerSubmissionForm__form {
   margin: 2rem auto 3rem auto;
 }

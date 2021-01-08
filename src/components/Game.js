@@ -14,16 +14,32 @@ const Game = () => {
   }).join(' ');
 
   const [submissions, setSubmissions] = useState([])
-  const [index, setIndex] = useState(1)
+  // const [index, setIndex] = useState(1)
   
   const sendSubmission = (submission) => {
     // Create a new array, make submissions that array (basically always += the object the newly substantiated array??), push submission into that new array, set state to that new array????
-    const newSubmissions = submissions
-    newSubmissions.push(submission)
+
+    // submissions = empty array
+    // sumission = {}
+    // ...submission = guts of {}
+    // ...submissions = {}, {}, {}
+    // newSubmission = [{}, {}, {}]
+    const verse = `The ${submission.adj1} ${submission.noun1} ${submission.adv} ${submission.verb} the ${submission.adj2} ${submission.noun2}.` 
+    const newSubmissions = [...submissions, verse]
+    // array of strings ^
+    // newSubmissions.push(submission)
     setSubmissions(newSubmissions)
     console.log(submissions)
-    setIndex(index + 1)
+    console.log(newSubmissions)
+    // setIndex(index + 1)
   };
+
+  // isSubmittd = boolean
+  // submissions = Array of strings
+  // `'My namy is ${}`
+  // revealPoem = function
+
+
 
   return (
     
@@ -38,11 +54,11 @@ const Game = () => {
         { exampleFormat }
       </p>
       
-      <RecentSubmission />
+      <RecentSubmission submissions={submissions[submissions.length - 1]}/>
 
-      <PlayerSubmissionForm sendSubmission={sendSubmission} index={index} />
+      <PlayerSubmissionForm sendSubmission={sendSubmission} index={submissions.length + 1} fields={FIELDS} />
 
-      <FinalPoem />
+      <FinalPoem submissions={submissions} />
 
     </div>
   );
