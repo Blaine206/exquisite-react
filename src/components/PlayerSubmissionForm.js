@@ -37,7 +37,7 @@ const PlayerSubmissionForm = (props) => {
       return field;
     }
   });
-
+ 
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -61,7 +61,6 @@ const PlayerSubmissionForm = (props) => {
       <form onSubmit={onFormSubmit} className="PlayerSubmissionForm__form" >
 
         <div className="PlayerSubmissionForm__poem-inputs">
-
         {inputFields}
         </div>
 

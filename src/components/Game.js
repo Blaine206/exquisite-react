@@ -14,6 +14,7 @@ const Game = () => {
   }).join(' ');
 
   const [submissions, setSubmissions] = useState([])
+  const [isSubmitted, setIsSubmitted] = useState(false)
   // const [index, setIndex] = useState(1)
   
   const sendSubmission = (submission) => {
@@ -33,6 +34,12 @@ const Game = () => {
     console.log(newSubmissions)
     // setIndex(index + 1)
   };
+
+
+  const revealPoem = () => {
+    setIsSubmitted(true)
+  } 
+
 
   // isSubmittd = boolean
   // submissions = Array of strings
@@ -58,7 +65,7 @@ const Game = () => {
 
       <PlayerSubmissionForm sendSubmission={sendSubmission} index={submissions.length + 1} fields={FIELDS} />
 
-      <FinalPoem submissions={submissions} />
+      <FinalPoem isSubmitted={isSubmitted} submissions={submissions} revealPoem={revealPoem} />
 
     </div>
   );
